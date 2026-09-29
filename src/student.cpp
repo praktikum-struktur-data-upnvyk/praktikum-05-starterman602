@@ -122,15 +122,22 @@ bool kurungSeimbang(const string& ekspresi) {
                 return false;
             }                
 
+            int topChar;
+            pop(s, topChar);
+
             if ((c == ')' && topChar != '(') ||
                 (c == '}' && topChar != '{') ||
                 (c == ']' && topChar != '[')) {
+                clear(s);
                 return false;
             }
         }
     }
 
-    return isEmpty(s);
+    
+    bool seimbang = isEmpty(s);
+    clear(s);
+    return seimbang;
 }
 
 
